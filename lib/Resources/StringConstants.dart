@@ -9,3 +9,12 @@ const String carNumberText= 'سيارة رقم ';
 const String violationsText= 'مخالفات ';
 const String newDeviceText= 'جهاز جديد ';
 const String progressText= 'قيد التنفيذ';
+//User screen
+const String driverText= 'السائق ';
+const String vehicleText= 'المركبة ';
+const String singleViolationText= 'مخالفة ';
+const String numberText= 'رقم';
+const String placeText= 'المكان';
+const String timeText= 'الوقت';
+const String dayText= 'اليوم';
+const String moreText= 'المزيد';

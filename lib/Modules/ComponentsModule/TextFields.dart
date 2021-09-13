@@ -47,66 +47,69 @@ class AppTextField extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     // height: ScreenUtil().setHeight(60).toDouble(),
     // setting the height value causes the unability to set a focus to a TextField!
-    child: TextFormField(
-      controller: controller,
-      obscureText: obscure,
-      keyboardType: keyboardType,
-      maxLines: 1,
-      style: TextStyle(fontSize: 20),
-      textInputAction: textInputAction,
-      autofocus: autofocus,
-      enableInteractiveSelection: enableinteractiveSelection,
-      validator: validator,
-      maxLength: maxLength,
-      onSaved: (String value) {
-        controller.text = value;
-      },
-      focusNode: focusNode,
-      onFieldSubmitted: (String value) {
-        FocusScope.of(context).nextFocus();
-      },
-      autocorrect: autocorrect,
-      enableSuggestions: enableSuggestions,
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.blue),
+    child: Directionality(
+      textDirection: TextDirection.rtl,
+      child: TextFormField(
+        controller: controller,
+        obscureText: obscure,
+        keyboardType: keyboardType,
+        maxLines: 1,
+        style: TextStyle(fontSize: 20),
+        textInputAction: textInputAction,
+        autofocus: autofocus,
+        enableInteractiveSelection: enableinteractiveSelection,
+        validator: validator,
+        maxLength: maxLength,
+        onSaved: (String value) {
+          controller.text = value;
+        },
+        focusNode: focusNode,
+        onFieldSubmitted: (String value) {
+          FocusScope.of(context).nextFocus();
+        },
+        autocorrect: autocorrect,
+        enableSuggestions: enableSuggestions,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          helperText: '',
+          // helperStyle/fontSize should be always syncronised with errorStyle/fontSize!
+          helperStyle: TextStyle(
+            fontSize:16,
+          ),
+          // if the errorStyle/fontSize is different from helperStyle/fontSize,
+          // it causes the jumping in the textfield during validation
+          // should be always syncronised with helperStyle/fontSize!
+          errorStyle: TextStyle(
+            color: Colors.red,
+            fontSize: 16,
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.red),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintText: hint,
+          labelText: label,
+          prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
+          suffix: SizedBox(
+            width: 20,
+          ),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.blue),
-        ),
-        helperText: '',
-        // helperStyle/fontSize should be always syncronised with errorStyle/fontSize!
-        helperStyle: TextStyle(
-          fontSize:16,
-        ),
-        // if the errorStyle/fontSize is different from helperStyle/fontSize,
-        // it causes the jumping in the textfield during validation
-        // should be always syncronised with helperStyle/fontSize!
-        errorStyle: TextStyle(
-          color: Colors.red,
-          fontSize: 16,
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.red),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.blue),
-        ),
-        hintText: hint,
-        labelText: label,
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-        suffix: SizedBox(
-          width: 20,
-        ),
+        onChanged: onChanged,
+        onEditingComplete: onEditingComplete,
+        onTap: onTap,
       ),
-      onChanged: onChanged,
-      onEditingComplete: onEditingComplete,
-      onTap: onTap,
     ),
   );
 }

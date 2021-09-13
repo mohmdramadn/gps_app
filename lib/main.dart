@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gps_app/Modules/HomeModule/Views/HomeScreen.dart';
 import 'package:gps_app/Modules/LoginModule/Views/LoginScreen.dart';
+import 'package:gps_app/Modules/UserModule/Views/UserProfileScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,9 +19,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginScreen(),
+        home: UserProfileScreen(),
         routes: {
+          'login': (context) => LoginScreen(),
           'home': (context) => HomeScreen(),
+          'profile': (context) => UserProfileScreen(),
         },
       ),
     );
